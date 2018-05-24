@@ -1,0 +1,19 @@
+html, body{
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.main{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.main.center{
+    align-items: center;
+    justify-content: center;
+}
+
+.main-item{
+    align-self: stretch;
+}
