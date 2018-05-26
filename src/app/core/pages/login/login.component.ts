@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service';
 import { finalize } from 'rxjs/operators';
+import { Router, ActivatedRoute } from '@angular/router';
 
 // import 'rxjs/add/operator/finally';
 
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   password: string;
   loading = false;
 
-  constructor(public service: LoginService) { }
+  constructor(public service: LoginService, public router: Router, public route: ActivatedRoute) { }
 
   ngOnInit() {
 

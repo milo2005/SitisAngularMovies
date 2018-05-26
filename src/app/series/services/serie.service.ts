@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { SeriesModule } from '../series.module';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
@@ -7,9 +6,7 @@ import { Serie, SerieResult } from './serie.model';
 import { map } from 'rxjs/operators';
 
 
-@Injectable({
-  providedIn: SeriesModule
-})
+@Injectable()
 export class SerieService {
 
   constructor(public http: HttpClient) { }

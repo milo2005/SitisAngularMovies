@@ -1,3 +1,6 @@
-<p>
-  serie-list works!
-</p>
+<div *ngIf="data  != null" class="row">
+  <div *ngFor="let s of data.results" class="col s12 m6 l4">
+      <app-serie-card  [serie]="s"></app-serie-card>
+  </div>
+    
+</div>

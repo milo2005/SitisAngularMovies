@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, timer, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class LoginService {
 
   constructor() { }

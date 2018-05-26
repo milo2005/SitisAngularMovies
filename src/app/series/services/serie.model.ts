@@ -1,7 +1,7 @@
 export class Serie {
 
     constructor(public poster_path: string,
-        public popularity: number,
+        public vote_average: number,
         public id: number,
         public backdrop_path: string,
         public overview: string,
