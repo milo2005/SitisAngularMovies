@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie } from '../../../movies/services/movie.model';
+import { environment } from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-movie-card',
@@ -8,7 +9,8 @@ import { Movie } from '../../../movies/services/movie.model';
 })
 export class MovieCardComponent implements OnInit {
 
-  movie: Movie;
+  @Input() movie: Movie;
+  @Output() selected: EventEmitter<Movie> = new EventEmitter();
 
   constructor() { }
 
@@ -16,7 +18,11 @@ export class MovieCardComponent implements OnInit {
   }
 
   getUrlImage(): string {
-    return '';
+    return environment.urlImg + '/' + this.movie.backdrop_path;
+  }
+
+  onClick() {
+    this.selected.emit(this.movie);
   }
 
 }

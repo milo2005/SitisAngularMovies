@@ -16,6 +16,7 @@ const routes: Routes = [
         path: 'estrenos', component: DashboardComponent, canActivate: [AccessGuard],
         children: [
             ...movieRoutes,
+            ...serieRoutes,
             { path: '', redirectTo: 'peliculas', pathMatch: 'full' }
         ]
     },

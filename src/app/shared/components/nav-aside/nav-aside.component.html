@@ -2,5 +2,7 @@
     <li class="collection-header grey darken-4 ">
         <h6 class="thin">{{m.section}}</h6>
     </li>
-    <a class="collection-item opc" *ngFor="let item of m.items"><i class="material-icons">{{item.icon}}</i>{{item.title}}</a>    
+    <a [routerLink]="item.route" routerLinkActive="amber" class="collection-item opc" *ngFor="let item of m.items">
+        <i class="material-icons">{{item.icon}}</i>{{item.title}}
+    </a>    
 </ul>
