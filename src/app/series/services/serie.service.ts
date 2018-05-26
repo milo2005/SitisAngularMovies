@@ -11,6 +11,8 @@ export class SerieService {
 
   constructor(public http: HttpClient) { }
 
+  selected: Serie;
+
   listPopular(page: number): Observable<SerieResult> {
     const url = `${environment.url}/tv/popular?api_key=${environment.apiKey}&language=es&page=${page}`;
     return this.http.get<any>(url);

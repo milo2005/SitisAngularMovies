@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SerieService } from '../services/serie.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Movie } from '../../movies/services/movie.model';
 
 @Component({
   selector: 'app-serie-detail',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SerieDetailComponent implements OnInit {
 
-  constructor() { }
+  movie: Movie;
+
+  constructor(public service: SerieService, public router: Router, public route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.route.paramMap
+      .subscribe(x => console.log(x.get('id')));
+
   }
 
 }
