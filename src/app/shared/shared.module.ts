@@ -6,12 +6,18 @@ import { ToolBarComponent } from './components/tool-bar/tool-bar.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
 import { SerieCardComponent } from './components/serie-card/serie-card.component';
 import { NavAsideComponent } from './components/nav-aside/nav-aside.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [LoaderComponent, ToolBarComponent, MovieCardComponent, SerieCardComponent, NavAsideComponent],
-  exports: [LoaderComponent, ToolBarComponent, MovieCardComponent, SerieCardComponent, NavAsideComponent]
+  exports: [LoaderComponent,
+    ToolBarComponent,
+    MovieCardComponent,
+    SerieCardComponent,
+    NavAsideComponent,
+    RouterModule]
 })
 export class SharedModule { }

@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Observable, timer, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { SesionService } from './sesion.service';
+
 
 @Injectable()
 export class LoginService {
 
-  constructor() { }
+  constructor(public session: SesionService) { }
 
   login(username: string, password: string): Observable<string> {
-    return timer(2000)
+    return timer(1000)
       .pipe(
         map(x => {
           if (username === 'admin' && password === 'admin') {
@@ -21,6 +23,8 @@ export class LoginService {
           if (x.error) {
             throw new Error(x.error);
           } else {
+            this.session.logged = true;
+            this.session.token = x.token;
             return x.token;
           }
         })

@@ -20,6 +20,7 @@
           <div class="row" *ngIf="!loading">
               <button class="col s6 btn-flat amber-text">Registrate</button>
               <button class="col s6 btn " (click)="login()">Entrar</button>
+              <p class="red-text" *ngIf="error">{{error}}</p>
           </div>
           <app-loader [show]="loading" [size]="'small'"></app-loader>
 

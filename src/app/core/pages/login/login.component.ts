@@ -15,24 +15,26 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   loading = false;
+  error: string;
 
-  constructor(public service: LoginService) { }
+  constructor(public service: LoginService,
+    public router: Router,
+    public route: ActivatedRoute) { }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   login() {
     this.loading = true;
-    this.service.login(this.username, this.password)
-      .pipe(
-        finalize(() => this.loading = false)
-      )
-      .subscribe(x => {
-        console.log('Entro');
-      }, err => {
-        console.log(err.message);
-      });
+    this.service.login(this.username, this.password).pipe(
+      finalize(() => this.loading = false)
+    ).subscribe(x => {
+      this.router.navigate(['estrenos'], { relativeTo: this.route });
+    }, err => {
+      this.error = err.message;
+      setTimeout(() => {
+        this.error = null;
+      }, 1500);
+    });
 
   }
 

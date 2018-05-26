@@ -5,10 +5,20 @@ import { DashboardComponent } from './core/pages/dashboard/dashboard.component';
 import { NotFoundComponent } from './core/pages/not-found/not-found.component';
 import { SeriesComponent } from './series/series.component';
 import { serieRoutes } from './series/series.routing';
+import { AccessGuard } from './core/services/access.guard';
+import { movieRoutes } from './movies/movies.routing';
+
+
 
 const routes: Routes = [
     { path: '', component: LoginComponent },
-    { path: 'estrenos', component: DashboardComponent },
+    {
+        path: 'estrenos', component: DashboardComponent, canActivate: [AccessGuard],
+        children: [
+            ...movieRoutes,
+            { path: '', redirectTo: 'peliculas', pathMatch: 'full' }
+        ]
+    },
     { path: '**', component: NotFoundComponent }
 ];
 

@@ -7,6 +7,7 @@ import { AppRouter } from './app.routing';
 import { SharedModule } from './shared/shared.module';
 
 import { SeriesModule } from './series/series.module';
+import { MoviesModule } from './movies/movies.module';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SeriesModule } from './series/series.module';
   imports: [
     BrowserModule,
     CoreModule,
+    MoviesModule,
     AppRouter
   ],
   providers: [],
